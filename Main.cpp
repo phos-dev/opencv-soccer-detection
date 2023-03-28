@@ -7,7 +7,7 @@ using namespace cv;
 void detectLines(const Mat& image, vector<Vec4i>& lines)
 {
     GaussianBlur(image, image, Size(3, 3), 0, 0);
-
+    
     Mat edges;
     Canny(image, edges, 30, 90);
 
@@ -56,7 +56,7 @@ int main()
 
         // Contours
         ApplySobel(image, grad, grad_x, grad_y, gray);
-
+        
         // Fill gaps
         magnitude(grad_x, grad_y, grad);
         normalize(grad, grad, 0, 255, NORM_MINMAX, CV_8U);
